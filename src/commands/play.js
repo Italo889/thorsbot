@@ -46,8 +46,10 @@ const playSong = async (bot, msg, song) => {
     };
   }
   queue.dispatcher = await queue.connection.play(
-    await ytdl(song.url, { highWaterMark: 1 << 25, filter: "audioonly" }),
-    {
+    await ytdl(song.url, {
+      highWaterMark: 1 << 25,
+      filter: "audioonly"
+    }), {
       type: "opus",
     }
   );
